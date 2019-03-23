@@ -10,7 +10,7 @@ import UIKit
 
 class PlayingCardView: UIView {
 
-    var rank: Int = 5 { didSet { setNeedsDisplay(); setNeedsLayout() }}
+    var rank: Int = 11 { didSet { setNeedsDisplay(); setNeedsLayout() }}
     var suit: String = "♥️" { didSet { setNeedsDisplay(); setNeedsLayout() }}
     var isFaceUp: Bool = true { didSet { setNeedsDisplay(); setNeedsLayout() }}
     
@@ -43,6 +43,11 @@ class PlayingCardView: UIView {
         label.isHidden = !isFaceUp
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        setNeedsLayout()
+        setNeedsDisplay()
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -50,8 +55,9 @@ class PlayingCardView: UIView {
         upperLeftCornerLabel.frame.origin = bounds.origin.offsetBy(dx: cornerOffset, dy: cornerOffset)
         
         configureCornerLabel(lowerRightCornerLabel)
-        lowerRightCornerLabel.transform = CGAffineTransform.init(rotationAngle: CGFloat.pi)
-//        .translatedBy(x: lowerRightCornerLabel.bounds.width, y: lowerRightCornerLabel.bounds.height) // Anlamadım. Bişeyi değiştirmedi.
+        lowerRightCornerLabel.transform = CGAffineTransform.identity
+        .translatedBy(x: lowerRightCornerLabel.bounds.width, y: lowerRightCornerLabel.bounds.height)
+        .rotated(by: CGFloat.pi)
         
         lowerRightCornerLabel.frame.origin = CGPoint(x: bounds.maxX, y: bounds.maxY)
         .offsetBy(dx: -cornerOffset, dy: -cornerOffset)
@@ -66,6 +72,10 @@ class PlayingCardView: UIView {
         UIColor.white.setFill()
         roundedRectPath.addClip()
         roundedRectPath.fill()
+        
+        if let faceCardImage = UIImage(named: rankString+suit) {
+            faceCardImage.draw(in: bounds.zoom(by: SizeRatio.faceCardImageSizeToBoundsSize))
+        }
     }
 }
 
@@ -74,7 +84,7 @@ extension PlayingCardView {
         static let cornerFontSizeToBoundsHeight: CGFloat = 0.085
         static let cornerRadiusToBoundsHeight: CGFloat = 0.06
         static let cornerOffsetToCornerRadius: CGFloat = 0.33
-        static let faceCardImageSizeToBoundsSize: CGFloat = 0.75
+        static let faceCardImageSizeToBoundsSize: CGFloat = 0.85
     }
     
     private var cornerRadius: CGFloat {

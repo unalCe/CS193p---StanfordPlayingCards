@@ -19,16 +19,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="LaH-kc-DMB" customClass="PlayingCardView" customModule="StanfordPlayingCards" customModuleProvider="target">
-                                <rect key="frame" x="16" y="20" width="343" height="627"/>
+                                <rect key="frame" x="16" y="59" width="343" height="549"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="750" constant="800" id="8Fg-3b-0YE"/>
+                                    <constraint firstAttribute="width" secondItem="LaH-kc-DMB" secondAttribute="height" multiplier="5:8" id="eAn-fO-tZ2"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.95678228139999999" green="0.83344471450000002" blue="0.013708841059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="LaH-kc-DMB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="72p-bZ-P8n"/>
-                            <constraint firstItem="LaH-kc-DMB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="OOy-by-TQO"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LaH-kc-DMB" secondAttribute="trailing" constant="16" id="ngA-su-VAv"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LaH-kc-DMB" secondAttribute="bottom" constant="20" id="tUL-2G-UYI"/>
+                            <constraint firstItem="LaH-kc-DMB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="72p-bZ-P8n"/>
+                            <constraint firstItem="LaH-kc-DMB" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="OOy-by-TQO"/>
+                            <constraint firstItem="LaH-kc-DMB" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jJm-ht-SU0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LaH-kc-DMB" secondAttribute="trailing" constant="16" id="ngA-su-VAv"/>
+                            <constraint firstItem="LaH-kc-DMB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oua-Ve-fya"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LaH-kc-DMB" secondAttribute="bottom" constant="20" id="tUL-2G-UYI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
