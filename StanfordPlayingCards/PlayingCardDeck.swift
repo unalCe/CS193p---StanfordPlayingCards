@@ -9,9 +9,7 @@
 import Foundation
 
 struct PlayingCardDeck {
-    
     private(set) var cards = [PlayingCard]()
-    
     
     init() {
         for suit in PlayingCard.Suit.allSuits {

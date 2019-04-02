@@ -8,14 +8,12 @@
 
 import Foundation
 
-
 struct PlayingCard: CustomStringConvertible {
     
-    var description: String { return "\(suit) \(rank)"}
+    var description: String { return "\(suit) \(rank)" }
     
     var suit: Suit
     var rank: Rank
-    
     
     enum Suit: String, CustomStringConvertible {
         case spades = "♣️"
@@ -64,6 +62,4 @@ struct PlayingCard: CustomStringConvertible {
             }
         }
     }
-    
-    
 }

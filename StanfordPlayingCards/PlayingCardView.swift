@@ -121,7 +121,7 @@ class PlayingCardView: UIView {
         roundedRectPath.addClip()
         roundedRectPath.fill()
         
-        if isFaceUp {           /// **** in Bundle.... yazılım önemli. UIImage'leri de storyboardda görmene yarar.
+        if isFaceUp {           /// **** in: Bundle.... yazılım önemli. UIImage'leri de storyboardda görmene yarar.
             if let faceCardImage = UIImage(named: rankString+suit, in: Bundle(for: self.classForCoder), compatibleWith: traitCollection) {
                 faceCardImage.draw(in: bounds.zoom(by: faceCardScale))
             } else {
